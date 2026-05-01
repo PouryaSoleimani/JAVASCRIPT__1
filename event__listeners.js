@@ -24,6 +24,7 @@ class EventListenersComponents {
     this.handleTimeStart();
     this.handleTimeStop();
     this.handleCheckText();
+    this.handleDynamicHeight()
   }
 
   addButtonEventHandler() {
@@ -188,6 +189,16 @@ class EventListenersComponents {
 
     _textArea.addEventListener('keyup', (e) => {
       checker(e.target.value)
+    })
+  }
+
+  handleDynamicHeight() {
+    const box = document.querySelector('.dynamic__height__div')
+    box.addEventListener('click', () => {
+      const randomWidth = `${Math.floor(Math.random() * 1000)}px`
+      const randomColor = `rgb(${Math.floor(Math.random() * 100)},${Math.floor(Math.random() * 100)},${Math.floor(Math.random() * 100)}`
+      box.style.setProperty('width', randomWidth)
+      box.style.setProperty('background-color', randomColor)
     })
   }
 }
