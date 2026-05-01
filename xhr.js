@@ -36,11 +36,13 @@ function injectUsers() {
         const html = `<p>${item.id}.${item.name} - ${item.age} Years Old</p>`
         HTML.push(html)
       })
-
-      wrapper.style.setProperty('padding', "24px")
-      wrapper.style.setProperty('height', '80px')
-      wrapper.style.setProperty('width', '350px')
-      wrapper.style.setProperty('opacity', '1')
+      wrapper.style.cssText = `
+      font-weight:bold;
+      padding:24px;
+      height:160px;
+      width:350px;
+      opacity:1;
+      `;
       setTimeout(() => {
         requestAnimationFrame(() => {
           wrapper.innerHTML = HTML.join('')
@@ -54,4 +56,52 @@ function injectUsers() {
 
 usersBtn.addEventListener('click', injectUsers)
 
-// =====================================================================================================================
+// ============================================================================================================================
+
+function xhrTest() {
+  const xhr = new XMLHttpRequest()
+  console.log('xhr =>', xhr)
+  xhr.open('GET', "users.json", true)
+
+  xhr.onprogress = function () {
+    console.log('PROGRESS')
+  }
+
+  xhr.onreadystatechange = function () {
+    console.log('READYSTATE =>', this.readyState)
+  }
+
+  xhr.send()
+
+}
+
+
+
+// ============================================================================================================================
+
+function loadUsers() {
+  const xhr = new XMLHttpRequest()
+  xhr.open('GET', "https://api.github.com/users", true)
+
+  xhr.onload = function () {
+
+    if (this.status !== 200) {
+      console.error('⛔ GITHUB GET REQUEST FAILED !')
+    }
+
+    if (this.status == 200) {
+      let users = JSON.parse(this.response)
+      console.log({ users })
+    }
+  }
+
+  xhr.send()
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  xhrTest()
+  loadUsers()
+})
+
+// ============================================================================================================================

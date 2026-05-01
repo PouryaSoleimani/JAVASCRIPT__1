@@ -269,4 +269,33 @@ p {
   transition: all 400ms ease;
   background-color: whitesmoke;
   color: #141414;
+  outline: 8px solid #ffffff30;
+  p {
+    border-bottom: 3px dashed lightgray;
+    padding-bottom: 10px;
+  }
+}
+
+.fetch__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-weight: 700;
+  border: 5px solid #ffffff20;
+  border-radius: 24px;
+  transition: all 400ms ease;
+  outline: 8px solid #ffffff30;
+  height: 100vh;
+  margin: 3rem;
+  button {
+    width: fit-content;
+  }
+
+  p {
+    border-bottom: 3px dashed lightgray;
+    padding-bottom: 10px;
+    transition: all 400ms ease;
+  }
 }
