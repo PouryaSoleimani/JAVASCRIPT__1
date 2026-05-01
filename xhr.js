@@ -18,7 +18,7 @@ function injectText() {
 
 btn.addEventListener('click', injectText)
 
-// ==================================================================================
+// ========================================================================================================================
 const usersBtn = document.getElementById('AJAX__USERS__BUTTON')
 const wrapper = document.querySelector('.users___wrapper')
 
@@ -33,12 +33,10 @@ function injectUsers() {
       let HTML = []
 
       res.forEach((item) => {
-        const html = `
-        <p>${item.id}.${item.name} - ${item.age} Years Old</p>
-        `
+        const html = `<p>${item.id}.${item.name} - ${item.age} Years Old</p>`
         HTML.push(html)
       })
-      
+
       wrapper.style.setProperty('padding', "24px")
       wrapper.style.setProperty('height', '80px')
       wrapper.style.setProperty('width', '350px')
@@ -47,7 +45,7 @@ function injectUsers() {
         requestAnimationFrame(() => {
           wrapper.innerHTML = HTML.join('')
         })
-      }, 300);
+      }, 400);
     }
   }
 
@@ -55,3 +53,5 @@ function injectUsers() {
 }
 
 usersBtn.addEventListener('click', injectUsers)
+
+// =====================================================================================================================
