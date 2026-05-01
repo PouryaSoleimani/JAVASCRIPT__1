@@ -237,3 +237,12 @@
   margin: 1rem;
   border-radius: 24px;
 }
+
+#AJAX__TEXT {
+  font-weight: bold;
+  font-family: 'JetBrains Mono';
+  background-color: rgb(23, 23, 24);
+  padding: 16px 24px;
+  border-radius: 32px;
+  transition: all 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
+}
