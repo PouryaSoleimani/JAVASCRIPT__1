@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // callback hell
 
-//
+// PROMISES
 
-//  console.log(
-//       "%c ERROR =>",
-//       "background-color:darkred;color:white;padding:2px 4px;border-radius:16px",
-//       err,
-//     ),
+// NEW PROMISE
+
+// RESOLVE , REJECT
+
+// .then() / .catch()
