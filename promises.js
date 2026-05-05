@@ -1,4 +1,4 @@
-let isValid = true;
+let isValid = false;
 
 class PromisesPage {
   constructor() {
@@ -21,20 +21,8 @@ class PromisesPage {
     });
 
     _promise
-      .then((response) =>
-        console.log(
-          "%c RESPONSE",
-          "background-color:darkgreen;color:white;padding:2px 6px 2px 0;text-align:center;border-radius:4px",
-          response,
-        ),
-      )
-      .catch((error) =>
-        console.log(
-          "%c ERROR",
-          "background-color:darkred;color:white;padding:2px 6px 2px 0;text-align:center;border-radius:4px",
-          error,
-        ),
-      );
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
   }
 }
 
