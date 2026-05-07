@@ -11,3 +11,16 @@ async function awaitShower() {
 }
 
 awaitShower();
+
+async function delay(ms) {
+  setTimeout(() => {
+    console.log(`EXECUTED AFTER ${ms} MS`);
+  }, ms);
+}
+
+async function shower() {
+  const response = await delay(5000);
+  return response;
+}
+
+shower();
