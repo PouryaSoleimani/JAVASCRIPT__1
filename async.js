@@ -1,0 +1,13 @@
+async function getAfterDelay() {
+  setTimeout(() => {
+    console.log("RESULT AFTER 3 SECONDS");
+  }, 3000);
+}
+
+async function awaitShower() {
+  console.log("IMMEDIATE RESULT");
+  const res = await getAfterDelay();
+  return res;
+}
+
+awaitShower();
