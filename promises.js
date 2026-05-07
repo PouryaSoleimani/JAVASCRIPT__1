@@ -1,5 +1,13 @@
 let isValid = false;
 
+function sleep(ms) {
+  return new Promise(() => {
+    setTimeout(() => {
+      console.log(`SLEEPED ${ms} MS`);
+    }, ms);
+  });
+}
+
 class PromisesPage {
   constructor() {
     this.init();
@@ -28,6 +36,7 @@ class PromisesPage {
 
 document.addEventListener("DOMContentLoaded", () => {
   new PromisesPage();
+  sleep(100);
 });
 
 // DOCS ===========================================================================================
