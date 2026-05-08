@@ -27,7 +27,7 @@ shower();
 
 async function getData() {
   const result = await fetch("...");
-  const data = result.json();
+  const data = await result.json();
 
   console.log("data =>", data);
 }
