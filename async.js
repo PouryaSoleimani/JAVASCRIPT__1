@@ -24,3 +24,14 @@ async function shower() {
 }
 
 shower();
+
+async function getData() {
+  const result = await fetch("...");
+  const data = result.json();
+
+  console.log("data =>", data);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  getData();
+});
