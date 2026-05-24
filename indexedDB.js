@@ -12,16 +12,19 @@ window.addEventListener('load', () => {
   }
 
   request.onupgradeneeded = (e) => {
-    let db = e.target.result
+    let db = e.target.result // -> REFERING TO THE INDEXDB
+    
     // CREATE DATABASE
     let objectStore = db.createObjectStore('contacts', {
       keypath: 'id',
       autoIncrement: true,
     })
+
     // CREATE SCHEMA / CREATE OBJECT STORE
     objectStore.createIndex('firstName', 'firstName', {
       unique: false
     })
+
     // CREATE SCHEMA / CREATE OBJECT STORE
     objectStore.createIndex('lastName', 'lastName', {
       unique: false
@@ -29,7 +32,5 @@ window.addEventListener('load', () => {
 
     console.log('✅ DATABASE CREATED SUCCESSFULLY')
   }
-
-
 
 })
