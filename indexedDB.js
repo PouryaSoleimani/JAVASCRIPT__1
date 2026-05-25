@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 
   request.onupgradeneeded = (e) => {
     let db = e.target.result // -> REFERING TO THE INDEXDB
-    
+
     // CREATE DATABASE
     let objectStore = db.createObjectStore('contacts', {
       keypath: 'id',
