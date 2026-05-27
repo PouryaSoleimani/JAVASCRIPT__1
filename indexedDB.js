@@ -23,7 +23,7 @@ class IndexedDbClass {
     }
 
     this.request.onsuccess = () => {
-      this.db = this.request.result; 1
+      this.db = this.request.result;
       console.log('✅ DB SUCCESS =>', this.db);
       this.displayDatas();
     }
@@ -32,22 +32,11 @@ class IndexedDbClass {
       this.db = e.target.result // -> REFERING TO THE INDEXDB
 
       // CREATE DATABASE
-      let objectStore = this.db.createObjectStore('contacts', {
-        keyPath: 'id',
-        autoIncrement: true,
-      })
+      let objectStore = this.db.createObjectStore('contacts', { keyPath: 'id', autoIncrement: true, })
 
-      // CREATE SCHEMA / CREATE OBJECT STORE
-      objectStore.createIndex('firstName', 'firstName', {
-        unique: false
-      })
-
-      // CREATE SCHEMA / CREATE OBJECT STORE
-      objectStore.createIndex('lastName', 'lastName', {
-        unique: false
-      })
-
-      console.log('✅ DATABASE CREATED SUCCESSFULLY')
+      // CREATE DATABASE INDEXES
+      objectStore.createIndex('firstName', 'firstName', { unique: false })
+      objectStore.createIndex('lastName', 'lastName', { unique: false })
     }
   }
 
@@ -66,6 +55,11 @@ class IndexedDbClass {
         toast.style.setProperty('right', "-400px")
       }, 1500);
       return
+    }
+
+    if (!this.db) {
+      console.error("DB IS NOT READY YET");
+      return;
     }
 
     //* ON SUCCESS
@@ -91,6 +85,7 @@ class IndexedDbClass {
 
       transaction.oncomplete = () => {
         console.log('✅ TRANSACTION COMPLETED')
+        this.displayDatas();
       }
 
       transaction.onerror = () => {
@@ -104,8 +99,6 @@ class IndexedDbClass {
       setTimeout(() => {
         toast.style.setProperty('right', "-400px")
       }, 1500);
-
-      this.displayDatas()
     }
 
 
@@ -137,10 +130,9 @@ class IndexedDbClass {
       if (cursor) {
         let liHtml = `
         <li data-contact-id="${cursor.value.id}">
-          ${cursor.value.firstName} ${cursor.value.lastName}
+         ${cursor.value.id}. ${cursor.value.firstName} ${cursor.value.lastName}
         </li>
         `
-        console.log('cursor =>', cursor)
         ul.innerHTML += liHtml
         cursor.continue()
       } else {
