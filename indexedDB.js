@@ -33,4 +33,4 @@ window.addEventListener('load', () => {
     console.log('✅ DATABASE CREATED SUCCESSFULLY')
   }
 
-})
+}) 
