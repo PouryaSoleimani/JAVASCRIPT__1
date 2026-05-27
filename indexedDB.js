@@ -101,7 +101,6 @@ class IndexedDbClass {
       }, 1500);
     }
 
-
   }
 
   eventHandlers() {
@@ -130,7 +129,10 @@ class IndexedDbClass {
       if (cursor) {
         let liHtml = `
         <li data-contact-id="${cursor.value.id}">
-         ${cursor.value.id}. ${cursor.value.firstName} ${cursor.value.lastName}
+        <p> ${cursor.value.id}. ${cursor.value.firstName} ${cursor.value.lastName} </p>
+        <button class="btn btn___red">
+        <i class="ph-fill ph-trash"></i>
+        </button>
         </li>
         `
         ul.innerHTML += liHtml

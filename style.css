@@ -24,6 +24,16 @@
   color: white;
 }
 
+.btn___red {
+  background-color: rgb(237, 100, 100);
+  color: white;
+
+  i {
+    font-size: 20px;
+    color: white;
+  }
+}
+
 #MODAL {
   .button__wrapper {
     display: flex;
@@ -98,6 +108,7 @@
     padding: 24px;
     margin: 2rem auto;
     border-radius: 16px;
+
     .form__group {
       position: relative;
 
@@ -113,6 +124,7 @@
         position: relative;
         z-index: 0;
       }
+
       label {
         transition: all 300ms linear;
         position: absolute;
@@ -125,6 +137,7 @@
         border-radius: 8px;
       }
     }
+
     p {
       color: white;
     }
@@ -152,6 +165,7 @@
   padding: 32px;
   border-radius: 20px;
   box-shadow: 0 6px 6px #e1dddd5a;
+
   .sample {
     background-color: white;
     color: black;
@@ -173,6 +187,7 @@
     font-family: inherit;
     font-weight: 500;
     font-size: 14px;
+
     &&:disabled {
       background-color: rgb(225, 245, 231);
       cursor: not-allowed;
@@ -229,9 +244,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     i.red {
       color: rgb(219, 67, 67);
     }
+
     i.green {
       color: rgb(56, 152, 56);
     }
@@ -292,6 +309,7 @@ p {
   background-color: whitesmoke;
   color: #141414;
   outline: 8px solid #ffffff30;
+
   p {
     border-bottom: 3px dashed lightgray;
     padding-bottom: 10px;
@@ -311,6 +329,7 @@ p {
   outline: 8px solid #ffffff30;
   height: 88vh;
   margin: 3rem;
+
   button {
     width: fit-content;
   }
@@ -334,15 +353,31 @@ p {
   flex-basis: 80%;
   height: 100%;
   border-left: 6px solid #ffffff50;
+
   li {
-    border-bottom: 2px dashed #ffffff20;
+    border: 1px solid #ffffff10;
     width: fit-content;
     margin-block: 10px;
-    padding-bottom: 3px;
+    padding: 8px;
+    border-radius: 0 8px 8px 0;
     border-left: 4px solid cornflowerblue;
     padding-left: 12px;
     list-style: none;
     text-transform: uppercase;
+    display: flex;
+    gap: 12px;
+    background-color: #ffffff10;
+    align-items: center;
+    justify-content: center;
+
+    .btn {
+      padding: 4px;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
   }
 }
 
@@ -363,6 +398,7 @@ p {
   border-radius: 8px;
   background-color: #ffffff10;
   height: 300px;
+
   button {
     margin-top: auto;
     border-radius: 4px;
