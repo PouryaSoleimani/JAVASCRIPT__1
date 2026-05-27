@@ -6,6 +6,7 @@ const toastText = document.querySelector('.text')
 const toastIcon = document.querySelector('.icon')
 
 
+// INDEXED DB
 window.addEventListener('load', () => {
   let request = window.indexedDB.open('contacts', 1)
 
@@ -43,6 +44,7 @@ window.addEventListener('load', () => {
 
 })
 
+// FORM SUBMITHANDLER
 function formSubmitHandler(e) {
   e.preventDefault()
   const firstVal = firstNameInput.value
