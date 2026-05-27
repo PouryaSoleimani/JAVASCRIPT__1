@@ -16,7 +16,6 @@ class IndexedDbClass {
     this.request = window.indexedDB.open('contacts', 1)
     this.initDB()
     this.eventHandlers();
-    // this.deleteDataItem()
   }
 
   initDB() {
