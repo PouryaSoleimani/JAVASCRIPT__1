@@ -236,7 +236,6 @@
       color: rgb(56, 152, 56);
     }
   }
-
 }
 
 .dynamic__height__div {
@@ -323,11 +322,31 @@ p {
   }
 }
 
+.content___wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90vh;
+  padding: 32px;
+}
+
+.ul {
+  flex-basis: 80%;
+  height: 100%;
+  border-left: 6px solid #ffffff50;
+  li {
+    border-bottom: 2px dashed #ffffff20;
+    width: fit-content;
+    margin-block: 10px;
+    padding-bottom: 3px;
+    border-left: 4px solid cornflowerblue;
+    padding-left: 12px;
+    list-style: none;
+    text-transform: uppercase;
+  }
+}
+
 .form___wrapper {
-  outline: 9px solid #ffffff20;
-  width: 80%;
-  height: 90dvh;
-  margin: 32px auto;
   border-radius: 32px;
   display: flex;
   align-items: center;
