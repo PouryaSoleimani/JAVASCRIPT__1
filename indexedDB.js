@@ -7,7 +7,8 @@ const toastText = document.querySelector('.text')
 const toastIcon = document.querySelector('.icon')
 const ul = document.querySelector('.ul')
 
-//^ CLASS __________________________________________________________________________________________________________________
+
+//^ CLASS  __________________________________________________________________________________________________________________
 class IndexedDbClass {
   constructor() {
     this.db = null;
@@ -136,9 +137,9 @@ class IndexedDbClass {
       if (cursor) {
         let liHtml = `
         <li data-contact-id="${cursor.value.id}">
-        ${cursor.value.firstName} ${cursor.value.lastName}
-        </li>  
-      `
+          ${cursor.value.firstName} ${cursor.value.lastName}
+        </li>
+        `
         console.log('cursor =>', cursor)
         ul.innerHTML += liHtml
         cursor.continue()
