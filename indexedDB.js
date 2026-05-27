@@ -102,7 +102,6 @@ class IndexedDbClass {
       setTimeout(() => {
         toast.style.setProperty('right', "-400px")
       }, 1500);
-      console.log({ firstVal, lastVal })
     }
 
 
