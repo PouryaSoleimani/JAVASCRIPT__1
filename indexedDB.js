@@ -8,6 +8,7 @@ const toastIcon = document.querySelector('.icon')
 const ul = document.querySelector('.ul')
 
 
+
 //^ CLASS  __________________________________________________________________________________________________________________
 class IndexedDbClass {
   constructor() {
@@ -15,6 +16,7 @@ class IndexedDbClass {
     this.request = window.indexedDB.open('contacts', 1)
     this.initDB()
     this.eventHandlers();
+    // this.deleteDataItem()
   }
 
   initDB() {
@@ -109,7 +111,8 @@ class IndexedDbClass {
       if (e.key == 'Enter') {
         this.formSubmitHandler(e)
       }
-    })
+    });
+
   }
 
   displayDatas() {
@@ -130,12 +133,13 @@ class IndexedDbClass {
         let liHtml = `
         <li data-contact-id="${cursor.value.id}">
         <p> ${cursor.value.id}. ${cursor.value.firstName} ${cursor.value.lastName} </p>
-        <button class="btn btn___red">
+        <button class="btn btn___red btn___delete">
         <i class="ph-fill ph-trash"></i>
         </button>
         </li>
         `
         ul.innerHTML += liHtml
+        this.deleteDataItem()
         cursor.continue()
       } else {
         if (!ul.firstChild) {
@@ -145,8 +149,53 @@ class IndexedDbClass {
     }
   }
 
+  deleteDataItem() {
+    const allDeleteBtns = document.querySelectorAll('.btn___delete');
+    // const allLiItems = document.querySelectorAll('.ul li');
+
+    const deleteDataItem = (e) => {
+      e.preventDefault()
+      const ID = Number(e.target.parentElement.dataset.contactId)
+      // const li = [...allLiItems].find((i) => i.getAttribute('data-contact-id') == ID)
+      let transaction = this.db.transaction(['contacts'], 'readwrite')
+      let request = transaction.objectStore('contacts').delete(ID)
+
+      transaction.oncomplete = () => {
+        // ul.removeChild(li)
+        toastIcon.innerHTML = `<i class="ph-fill ph-seal-check green"></i>`
+        toastText.textContent = 'Item Deleted Successfully.'
+        toast.style.setProperty('right', "20px")
+        setTimeout(() => {
+          toast.style.setProperty('right', "-400px")
+        }, 1500);
+      }
+      transaction.onerror = () => {
+        console.log('🛑 ERROR ON DELETE ITEM')
+      }
+
+      if (!ul.firstChild) {
+        ul.textContent = 'No Contacts To Show ...'
+      }
+
+    }
+
+    [...allDeleteBtns].forEach((i) => {
+      i.addEventListener('click', (e) => {
+        deleteDataItem(e)
+        this.displayDatas()
+      }
+      )
+    })
+  }
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   new IndexedDbClass()
 })
+
+
+
+
+
+
