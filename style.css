@@ -13,7 +13,7 @@
   color: white;
 
   &.btn__success {
-    background-color:  rgb(2, 98, 2);
+    background-color: rgb(2, 98, 2);
     outline: none;
     height: 40px;
   }
@@ -204,7 +204,7 @@
 }
 
 .toast {
-  width: 200px;
+  width: auto;
   height: 50px;
   background-color: white;
   border-radius: 12px;
@@ -221,7 +221,17 @@
   padding-inline: 20px;
   color: black;
   font-weight: 700;
-  transition: right 400ms ease-in-out;
+  transition: right 400ms ease;
+  gap: 8px;
+  .icon {
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i.red {
+      color: rgb(219, 67, 67);
+    }
+  }
 }
 
 .dynamic__height__div {

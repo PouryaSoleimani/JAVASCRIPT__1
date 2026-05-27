@@ -1,3 +1,11 @@
+const firstNameInput = document.getElementById('firstname')
+const lastNameInput = document.getElementById('lastname')
+const btn = document.getElementById('submit___btn')
+const toast = document.querySelector('.toast')
+const toastText = document.querySelector('.text')
+const toastIcon = document.querySelector('.icon')
+
+
 window.addEventListener('load', () => {
   let request = window.indexedDB.open('contacts', 1)
 
@@ -33,4 +41,27 @@ window.addEventListener('load', () => {
     console.log('✅ DATABASE CREATED SUCCESSFULLY')
   }
 
-})``
+})
+
+function formSubmitHandler(e) {
+  e.preventDefault()
+  const firstVal = firstNameInput.value
+  const lastVal = lastNameInput.value
+
+  if (!firstVal || !lastVal) {
+    toastIcon.innerHTML = `<i class="ph-fill ph-seal-warning red"></i>`
+    toastText.textContent = 'Please Fill Out the Form'
+    toast.style.setProperty('right', "20px")
+    setTimeout(() => {
+      toast.style.setProperty('right', "-400px")
+    }, 1500);
+    return
+  }
+
+
+
+  console.log({ firstVal, lastVal })
+
+}
+
+btn.addEventListener('click', formSubmitHandler)
