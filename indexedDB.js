@@ -58,9 +58,19 @@ function formSubmitHandler(e) {
     return
   }
 
+  if (firstVal || lastVal) {
+    toastIcon.innerHTML = `<i class="ph-fill ph-seal-check green"></i>`
+    toastText.textContent = 'Form Submitted Successfully.'
+    toast.style.setProperty('right', "20px")
+    firstNameInput.value = ""
+    lastNameInput.value = ""
+    setTimeout(() => {
+      toast.style.setProperty('right', "-400px")
+    }, 1500);
+    console.log({ firstVal, lastVal })
+    return
+  }
 
-
-  console.log({ firstVal, lastVal })
 
 }
 
