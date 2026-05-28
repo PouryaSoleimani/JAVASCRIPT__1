@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const firstNameInput = document.getElementById('firstname')
 const lastNameInput = document.getElementById('lastname')
 const form = document.querySelector('.form')
